@@ -9,8 +9,8 @@ from sklearn.cluster import KMeans
 def load_data(dataset='cora1'):
     torch.manual_seed(2023)
     if dataset=='cora1':
-        cite=pd.read_csv("E:/NEW学习/LW/图神经网络/GCN/数据/cora/cora.cites",sep='\t',header=None)
-        content=pd.read_csv("E:/NEW学习/LW/图神经网络/GCN/数据/cora/cora.content",sep='\t',header=None)
+        cite=pd.read_csv("/cora/cora.cites",sep='\t',header=None)
+        content=pd.read_csv("/cora/cora.content",sep='\t',header=None)
         # In[] 压缩成三类了
         content=content[(content[1434]=='Reinforcement_Learning')|(content[1434]=='Rule_Learning')|(content[1434]=='Theory')]
         #Counter(content.iloc[:,-1])
@@ -71,8 +71,8 @@ def load_data(dataset='cora1'):
         Al=A[0]+A[1]
         return A,Al,content.iloc[idx,-1],label
     elif dataset=='cora2':
-        cite=pd.read_csv("E:/NEW学习/LW/图神经网络/GCN/数据/cora/cora.cites",sep='\t',header=None)
-        content=pd.read_csv("E:/NEW学习/LW/图神经网络/GCN/数据/cora/cora.content",sep='\t',header=None)
+        cite=pd.read_csv("/cora/cora.cites",sep='\t',header=None)
+        content=pd.read_csv("/cora/cora.content",sep='\t',header=None)
         # In[] 压缩成四类了
         content=content[(content[1434]=='Probabilistic_Methods')|(content[1434]=='Theory')|(content[1434]=='Genetic_Algorithms')|(content[1434]=='Case_Based')]
         #Counter(content.iloc[:,-1])
@@ -134,8 +134,8 @@ def load_data(dataset='cora1'):
         return A,Al,content.iloc[idx,-1],label
     elif dataset=='citeseer':
                              
-        cite=pd.read_csv("E:/NEW学习/LW/图神经网络/GCN/数据/citeseer-doc-classification/citeseer.cites",sep='\t',header=None)
-        content=pd.read_csv("E:/NEW学习/LW/图神经网络/GCN/数据/citeseer-doc-classification/citeseer.content",sep='\t',header=None)
+        cite=pd.read_csv("/citeseer-doc-classification/citeseer.cites",sep='\t',header=None)
+        content=pd.read_csv("/citeseer-doc-classification/citeseer.content",sep='\t',header=None)
         
         content=content[(content[3704]=='AI')|(content[3704]=='ML')|(content[3704]=='Agents')]
         

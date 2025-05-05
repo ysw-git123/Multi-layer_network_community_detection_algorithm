@@ -9,7 +9,7 @@ import torch
 import networkx as nx
 
 def real_graph():  
-    data=pd.read_excel("E:/LW_code/实证数据/评论.xlsx")
+    data=pd.read_excel("评论.xlsx")
     data['Unnamed: 7'][data["情感"]==0]='负面'
     data['Unnamed: 7'][data["情感"]==1]='正面'
     data['Unnamed: 7'][data["情感"]==2]='中立'
@@ -18,11 +18,11 @@ def real_graph():
     
     data['地区'] = data['ip地址'].apply(lambda x : list(set(jieba.cut(x))))
     
-    jieba.load_userdict('E:/LW_code/实证数据/newwords.txt')
+    jieba.load_userdict('newwords.txt')
     
     data['word'] = data['微博内容文本'].apply(lambda x : list(jieba.cut(x)))
     # 读取停用词数据
-    stopwords = pd.read_csv('E:/LW_code/实证数据/cn_stopwords.txt', encoding='utf8', names=['stopword'], index_col=False)
+    stopwords = pd.read_csv('cn_stopwords.txt', encoding='utf8', names=['stopword'], index_col=False)
     #转化词列表 
     stop_list = stopwords['stopword'].tolist() 
     stop_list.append(' ')
